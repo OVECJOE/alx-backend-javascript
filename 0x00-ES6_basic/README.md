@@ -158,44 +158,48 @@
     41
     bob@dylan:~$
    ```
-5. **Rest parameter syntax for functions**
-   
+
+1. **Rest parameter syntax for functions**
+
    Modify the following function to return the number of arguments passed to it using the rest parameter syntax
 
    ```javascript
-    export default function returnHowManyArguments() {
-
-    }
+   export default function returnHowManyArguments() {}
    ```
+
    Example:
+
    ```bash
     > returnHowManyArguments("Hello", "Holberton", 2020);
     3
     >
    ```
-    **Execution:**
-    ```bash
-    bob@dylan:~$ cat 4-main.js
-    import returnHowManyArguments from './4-rest-parameter.js';
 
-    console.log(returnHowManyArguments("one"));
-    console.log(returnHowManyArguments("one", "two", 3, "4th"));
-    bob@dylan:~$
-    bob@dylan:~$ npm run dev 4-main.js 
-    1
-    4
-    bob@dylan:~$
-    ```
-6. **The wonders of spread syntax**
-   
+   **Execution:**
+
+   ```bash
+   bob@dylan:~$ cat 4-main.js
+   import returnHowManyArguments from './4-rest-parameter.js';
+
+   console.log(returnHowManyArguments("one"));
+   console.log(returnHowManyArguments("one", "two", 3, "4th"));
+   bob@dylan:~$
+   bob@dylan:~$ npm run dev 4-main.js
+   1
+   4
+   bob@dylan:~$
+   ```
+
+1. **The wonders of spread syntax**
+
    Using spread syntax, concatenate 2 arrays and each character of a string by modifying the function below. Your function body should be one line long.
 
    ```javascript
-    export default function concatArrays(array1, array2, string) {
-    
-    }
+   export default function concatArrays(array1, array2, string) {}
    ```
+
    **Execution:**
+
    ```bash
     bob@dylan:~$ cat 5-main.js
     import concatArrays from './5-spread-operator.js';
@@ -203,7 +207,7 @@
     console.log(concatArrays(['a', 'b'], ['c', 'd'], 'Hello'));
 
     bob@dylan:~$
-    bob@dylan:~$ npm run dev 5-main.js 
+    bob@dylan:~$ npm run dev 5-main.js
     [
       'a', 'b', 'c',
       'd', 'H', 'e',
@@ -211,3 +215,43 @@
     ]
     bob@dylan:~$
    ```
+
+1. **Take advantage of template literals**
+
+Rewrite the return statement to use a template literal so you can the substitute the variables you’ve defined.
+
+```javascript
+export default function getSanFranciscoDescription() {
+  const year = 2017;
+  const budget = {
+    income: "$119,868",
+    gdp: "$154.2 billion",
+    capita: "$178,479",
+  };
+
+  return (
+    "As of " +
+    year +
+    ", it was the seventh-highest income county in the United States" /
+      ", with a per capita personal income of " +
+    budget.income +
+    ". As of 2015, San Francisco" / " proper had a GDP of " +
+    budget.gdp +
+    ", and a GDP per capita of " +
+    budget.capita +
+    "."
+  );
+}
+```
+**Execution:**
+```bash
+  bob@dylan:~$ cat 6-main.js
+  import getSanFranciscoDescription from './6-string-interpolation.js';
+
+  console.log(getSanFranciscoDescription());
+
+  bob@dylan:~$
+  bob@dylan:~$ npm run dev 6-main.js 
+  As of 2017, it was the seventh-highest income county in the United States, with a per capita personal income of $119,868. As of 2015, San Francisco proper had a GDP of $154.2 billion, and a GDP per capita of $178,479.
+  bob@dylan:~$
+```
