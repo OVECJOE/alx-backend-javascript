@@ -372,3 +372,34 @@
       [ 'correctly-appended', 'correctly-fixed', 'correctly-displayed' ]
       bob@dylan:~$
     ```
+12. **Iterator**
+    Write a function named `createEmployeesObject` that will receive two arguments:
+
+    - `departmentName` (String)
+    - `employees` (Array of String)
+    ```javascript
+      export default function createEmployeesObject(departmentName, employees) {
+
+      }
+    ```
+    The function should return an object with the following format:
+    ```javascript
+      {
+          $departmentName: [
+                $employees,
+          ],
+      }
+    ```
+    **Execution:**
+    ```
+      bob@dylan:~$ cat 11-main.js
+      import createEmployeesObject from './11-createEmployeesObject.js';
+
+      console.log(createEmployeesObject("Software", [ "Bob", "Sylvie" ]));
+
+      bob@dylan:~$
+      bob@dylan:~$ npm run dev 11-main.js 
+      { Software: [ 'Bob', 'Sylvie' ] }
+      bob@dylan:~$
+
+    ```
