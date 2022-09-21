@@ -55,7 +55,7 @@
    bob@dylan:~$
    ```
 
-1. **Block Scope**
+2. **Block Scope**
 
    Given what you’ve read about `var` and hoisting, modify the variables inside the function `taskBlock` so that the variables aren’t overwritten inside the conditional block.
 
@@ -88,7 +88,7 @@
     bob@dylan:~$
    ```
 
-1. **Arrow functions**
+3. **Arrow functions**
 
    Rewrite the following standard function to use ES6’s arrow syntax of the function add (it will be an anonymous function after)
 
@@ -119,7 +119,7 @@
     bob@dylan:~$
    ```
 
-1. **Parameter defaults**
+4. **Parameter defaults**
 
    Condense the internals of the following function to 1 line - without changing the name of each function/variable.
 
@@ -159,7 +159,7 @@
     bob@dylan:~$
    ```
 
-1. **Rest parameter syntax for functions**
+5. **Rest parameter syntax for functions**
 
    Modify the following function to return the number of arguments passed to it using the rest parameter syntax
 
@@ -190,7 +190,7 @@
    bob@dylan:~$
    ```
 
-1. **The wonders of spread syntax**
+6. **The wonders of spread syntax**
 
    Using spread syntax, concatenate 2 arrays and each character of a string by modifying the function below. Your function body should be one line long.
 
@@ -216,42 +216,69 @@
     bob@dylan:~$
    ```
 
-1. **Take advantage of template literals**
+7. **Take advantage of template literals**
 
-Rewrite the return statement to use a template literal so you can the substitute the variables you’ve defined.
+    Rewrite the return statement to use a template literal so you can the substitute the variables you’ve defined.
 
-```javascript
-export default function getSanFranciscoDescription() {
-  const year = 2017;
-  const budget = {
-    income: "$119,868",
-    gdp: "$154.2 billion",
-    capita: "$178,479",
-  };
+    ```javascript
+    export default function getSanFranciscoDescription() {
+      const year = 2017;
+      const budget = {
+        income: "$119,868",
+        gdp: "$154.2 billion",
+        capita: "$178,479",
+      };
 
-  return (
-    "As of " +
-    year +
-    ", it was the seventh-highest income county in the United States" /
-      ", with a per capita personal income of " +
-    budget.income +
-    ". As of 2015, San Francisco" / " proper had a GDP of " +
-    budget.gdp +
-    ", and a GDP per capita of " +
-    budget.capita +
-    "."
-  );
-}
-```
-**Execution:**
-```bash
-  bob@dylan:~$ cat 6-main.js
-  import getSanFranciscoDescription from './6-string-interpolation.js';
+      return (
+        "As of " +
+        year +
+        ", it was the seventh-highest income county in the United States" /
+          ", with a per capita personal income of " +
+        budget.income +
+        ". As of 2015, San Francisco" / " proper had a GDP of " +
+        budget.gdp +
+        ", and a GDP per capita of " +
+        budget.capita +
+        "."
+      );
+    }
+    ```
+    **Execution:**
+    ```bash
+      bob@dylan:~$ cat 6-main.js
+      import getSanFranciscoDescription from './6-string-interpolation.js';
 
-  console.log(getSanFranciscoDescription());
+      console.log(getSanFranciscoDescription());
 
-  bob@dylan:~$
-  bob@dylan:~$ npm run dev 6-main.js 
-  As of 2017, it was the seventh-highest income county in the United States, with a per capita personal income of $119,868. As of 2015, San Francisco proper had a GDP of $154.2 billion, and a GDP per capita of $178,479.
-  bob@dylan:~$
-```
+      bob@dylan:~$
+      bob@dylan:~$ npm run dev 6-main.js 
+      As of 2017, it was the seventh-highest income county in the United States, with a per capita personal income of $119,868. As of 2015, San Francisco proper had a GDP of $154.2 billion, and a GDP per capita of $178,479.
+      bob@dylan:~$
+    ```
+8. **Object property value shorthand syntax**
+   Notice how the keys and the variable names are the same?
+
+   Modify the following function’s `budget` object to simply use the keyname instead.
+   ```javascript
+    export default function getBudgetObject(income, gdp, capita) {
+      const budget = {
+        income: income,
+        gdp: gdp,
+        capita: capita,
+      };
+
+      return budget;
+    }
+   ```
+   **Execution:**
+   ```bash
+    bob@dylan:~$ cat 7-main.js
+    import getBudgetObject from './7-getBudgetObject.js';
+
+    console.log(getBudgetObject(400, 700, 900));
+
+    bob@dylan:~$
+    bob@dylan:~$ npm run dev 7-main.js 
+    { income: 400, gdp: 700, capita: 900 }
+    bob@dylan:~$
+   ```
